@@ -1,6 +1,7 @@
 var gulp     = require('gulp');
 var clean    = require('gulp-clean');
 var include  = require('gulp-include');
+var insert   = require('gulp-insert');
 var es       = require('event-stream');
 var rseq     = require('gulp-run-sequence');
 var zip      = require('gulp-zip');
@@ -39,51 +40,51 @@ gulp.task('watch', function() {
 });
 
 gulp.task('chrome', function() {
-  var build_path = './build/chrome'
+  var build_path = './build/chrome';
+
+  es.merge(
+    pipe('./img/**/*',                            build_path + '/img'),
+    pipe('./css/**/*',                            build_path + '/css'),
+    pipe('./html/**/*',                           build_path),
+    pipe('./vendor/chrome/manifest.json',         build_path)
+  );
 
   gulp.src('js/hnprofile.js')
     .pipe(include())
-    .pipe(gulp.dest(build_path + '/js'))
-
-  return es.merge(
-    pipe('./img/**/*',                    build_path + '/img'),
-    pipe('./css/**/*',                    build_path + '/css'),
-    pipe('./html/**/*',                   build_path),
-    pipe('./vendor/chrome/browser.js',    build_path + '/js'),
-    pipe('./vendor/chrome/manifest.json', build_path)
-  );
+    .pipe(insert.prepend("var HNProfileBrowser = 'chrome';\n"))
+    .pipe(gulp.dest(build_path + '/js'));
 });
 
 gulp.task('firefox', function() {
-  var build_path = './build/firefox'
+  var build_path = './build/firefox';
+
+  es.merge(
+    pipe('./img/**/*',                              build_path + '/data/img'),
+    pipe('./css/**/*',                              build_path + '/data/css'),
+    pipe('./html/**/*',                             build_path + '/data'),
+    pipe('./vendor/firefox/main.js',                build_path + '/data'),
+    pipe('./vendor/firefox/package.json',           build_path)
+  );
 
   gulp.src('js/hnprofile.js')
     .pipe(include())
-    .pipe(gulp.dest(build_path + '/data/js'))
-
-  return es.merge(
-    pipe('./img/**/*',                    build_path + '/data/img'),
-    pipe('./css/**/*',                    build_path + '/data/css'),
-    pipe('./html/**/*',                   build_path + '/data'),
-    pipe('./vendor/firefox/browser.js',   build_path + '/data/js'),
-    pipe('./vendor/firefox/main.js',      build_path + '/data'),
-    pipe('./vendor/firefox/package.json', build_path)
-  );
+    .pipe(insert.prepend("var HNProfileBrowser = 'firefox';\n"))
+    .pipe(gulp.dest(build_path + '/data/js'));
 });
 
 gulp.task('safari', function() {
   var build_path = './build/safari/hnprofile.safariextension';
 
+  es.merge(
+    pipe('./img/**/*',                             build_path + '/img'),
+    pipe('./css/**/*',                             build_path + '/css'),
+    pipe('./html/**/*',                            build_path),
+    pipe('./vendor/safari/Info.plist',             build_path),
+    pipe('./vendor/safari/Settings.plist',         build_path)
+  );
+
   gulp.src('js/hnprofile.js')
     .pipe(include())
-    .pipe(gulp.dest(build_path + '/js'))
-
-  return es.merge(
-    pipe('./img/**/*',                     build_path + '/img'),
-    pipe('./css/**/*',                     build_path + '/css'),
-    pipe('./html/**/*',                    build_path),
-    pipe('./vendor/safari/browser.js',     build_path + '/js'),
-    pipe('./vendor/safari/Info.plist',     build_path),
-    pipe('./vendor/safari/Settings.plist', build_path)
-  );
+    .pipe(insert.prepend("var HNProfileBrowser = 'safari';\n"))
+    .pipe(gulp.dest(build_path + '/js'));
 });
