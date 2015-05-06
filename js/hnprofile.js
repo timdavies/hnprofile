@@ -74,8 +74,21 @@ function renderRateLimited() {
   return "<div class='hnprofile-ratelimited'>Unfortunately, you've been temporarily rate-limited for user profiles.</div>";
 }
 
+function getExtensionImage(src) {
+  if (HNProfileBrowser == "safari") {
+    return safari.extension.baseURI + src;
+  } else if (HNProfileBrowser == "chrome") {
+    return chrome.extension.getURL(src);
+  } else if (HNProfileBrowser == "firefox") {
+    return src;
+  } else {
+    console.log("HNProfile: error accessing browser name");
+    return src;
+  }
+}
+
 function renderLoadingTemplate() {
-  var imgURL = chrome.extension.getURL("img/loading.gif");
+  var imgURL = getExtensionImage("img/loading.gif");
   var html = "<div class='hnprofile-loading' style='background-image: url(" + imgURL + ");'></div>";
   return html;
 }
@@ -85,7 +98,7 @@ function renderProfileTemplate(data) {
   var bio = data["bio"].replace(/\n/g, "<br>");
 
   // Get avatar URL:
-  var avatarUrl = chrome.extension.getURL("img/profile.png");
+  var avatarUrl = getExtensionImage("img/profile.png");
   if (data["avatar"]) {
     avatarUrl = data["avatar"];
   }
