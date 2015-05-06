@@ -25,6 +25,11 @@
         <string>js/hnprofile.js</string>
       </array>
     </dict>
+    <key>Stylesheets</key>
+		<array>
+			<string>css/drop.css</string>
+			<string>css/hnprofile.css</string>
+		</array>
   </dict>
   <key>Description</key>
   <string>HNProfile adds profile overlays to Hacker News usernames</string>
