@@ -16,7 +16,7 @@
         "https://news.ycombinator.com/*"
       ],
       "css": [ "css/drop.css", "css/hnprofile.css" ],
-      "js": [ "js/jquery.js", "js/drop.js", "js/hnprofile.js" ]
+      "js": [ "js/jquery.js", "js/md5.js", "js/drop.js", "js/hnprofile.js" ]
     }
   ],
   "web_accessible_resources": [
