@@ -1,5 +1,26 @@
 function getDataForUser(username, callback) {
-  callback();
+  callback({
+    username: "kaolinite",
+    karma: 1218,
+    bio: "Founder of Pleasant.io, a simple, friendly website analytics service.\n\nI'm a Rails and Javascript (Angular and Ember) developer from Liverpool, UK. I also work with Go.\n\nGithub: http://github.com/timdavies\n\nWebsite: http://timdavies.io/\n\nEmail: mail@timdavies.io",
+    avatar: null,
+    account_age: "1156 days ago"
+  });
+}
+
+function renderLoadingTemplate() {
+  var imgURL = chrome.extension.getURL("img/loading.gif");
+  console.log(imgURL);
+  var html = "<div class='hnprofile-loading' style='background-image: url(" + imgURL + ");'></div>";
+  return html;
+}
+
+function renderProfileTemplate(data) {
+  var html = "";
+  html += "<div class='hnprofile-body'>"
+  html += "  <div class='hnprofile-username'>" + data["username"] + "</div>";
+  html += "</div>"
+  return html;
 }
 
 $(function() {
@@ -16,7 +37,7 @@ $(function() {
       target: this,
       content: 'Welcome to the future!',
       position: 'bottom left',
-      classes: 'drop-theme-basic',
+      classes: 'drop-theme-arrows-bounce',
       openOn: 'hover'
     });
 
@@ -27,11 +48,11 @@ $(function() {
     // When popover is opened, fetch the user's info:
     drop.on('open', function() {
       // Display loading message:
-      $(drop.content).html("Loading!");
+      $(drop.content).html(renderLoadingTemplate());
 
       // Fetch data:
-      getDataForUser(username, function() {
-        $(drop.content).html(username);
+      getDataForUser(username, function(data) {
+        $(drop.content).html(renderProfileTemplate(data));
       });
     });
   });
