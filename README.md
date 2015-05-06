@@ -27,11 +27,11 @@ Download here:
 
 1. Make sure you have gulp installed:
 
-    sudo npm install gulp -g
+      sudo npm install gulp -g
 
 1. Install the required packages for HNProfile:
 
-    npm install
+      npm install
 
 1. Run `gulp` to build the extension for all platforms. If you're developing,
   I recommend using `gulp watch` instead. This keeps track of file changes
