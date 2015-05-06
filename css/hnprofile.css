@@ -3,10 +3,16 @@
   background-size: 46px 46px;
 }
 
-.hnprofile-loading, .hnprofile-body {
-  border-radius: 5px;
+.hnprofile-loading, .hnprofile-body, .hnprofile-ratelimited {
   height: 220px;
   width: 300px;
+}
+
+.hnprofile-ratelimited {
+  text-align: center;
+  padding: 80px 20px 0 20px;
+  color: #666;
+  font-size: 13px;
 }
 
 .hnprofile-top {
