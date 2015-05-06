@@ -63,7 +63,7 @@ $(function() {
     // Bind to link:
     var drop = new Drop({
       target: this,
-      content: 'Welcome to the future!',
+      content: renderLoadingTemplate(),
       position: 'bottom left',
       classes: 'drop-theme-arrows-bounce',
       openOn: 'hover'
@@ -75,10 +75,6 @@ $(function() {
 
     // When popover is opened, fetch the user's info:
     drop.on('open', function() {
-      // Display loading message:
-      $(drop.content).html(renderLoadingTemplate());
-
-      // Fetch data:
       getDataForUser(username, function(data) {
         $(drop.content).html(renderProfileTemplate(data));
       });
