@@ -1,0 +1,23 @@
+.hnprofile-loading {
+  background: url(img/loading.gif) center center no-repeat #fafafa;
+  border-radius: 5px;
+  background-size: 46px 46px;
+  height: 200px;
+  width: 300px;
+}
+
+.hnprofile-loading, .hnprofile-body {
+  border-radius: 5px;
+  height: 200px;
+  width: 300px;
+}
+
+.hnprofile-body {
+  background: #fafafa;
+  padding: 10px;
+}
+
+.hnprofile-body .hnprofile-username {
+  font-weight: bold;
+  font-size: 20px;
+}
