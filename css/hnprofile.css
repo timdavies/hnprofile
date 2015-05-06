@@ -1,23 +1,85 @@
 .hnprofile-loading {
   background: url(img/loading.gif) center center no-repeat #fafafa;
-  border-radius: 5px;
   background-size: 46px 46px;
-  height: 200px;
-  width: 300px;
 }
 
 .hnprofile-loading, .hnprofile-body {
   border-radius: 5px;
-  height: 200px;
+  height: 220px;
   width: 300px;
 }
 
-.hnprofile-body {
-  background: #fafafa;
-  padding: 10px;
+.hnprofile-top {
+  height: 50px;
 }
 
-.hnprofile-body .hnprofile-username {
-  font-weight: bold;
+.hnprofile-avatar {
+  float: left;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background-size: 40px 40px;
+  border: 1px solid #ccc;
+}
+
+.hnprofile-username {
   font-size: 20px;
+}
+
+.hnprofile-info-bar {
+  float: right;
+  width: 240px;
+}
+
+.hnprofile-info-bar .hnprofile-karma, .hnprofile-info-bar .hnprofile-age {
+  font-size: 10px;
+  color: #666;
+  padding-top: 3px;
+}
+
+.hnprofile-info-bar .hnprofile-karma {
+  float: left;
+}
+
+.hnprofile-info-bar .hnprofile-age {
+  float: right;
+}
+
+.hnprofile-main {
+  clear: both;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+}
+
+.hnprofile-bio-label {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 3px;
+  margin-top: -10px;
+}
+
+.hnprofile-bio {
+  font-size: 12px;
+  line-height: 13px;
+  height: 80px;
+  overflow: scroll;
+  padding-bottom: 20px;
+}
+
+.hnprofile-links {
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+.hnprofile-link {
+  width: 130px;
+  float: left;
+  margin: 0px 10px;
+  text-align: center;
+  padding: 5px 0;
+  background: #eaeaea;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }

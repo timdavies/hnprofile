@@ -10,16 +10,44 @@ function getDataForUser(username, callback) {
 
 function renderLoadingTemplate() {
   var imgURL = chrome.extension.getURL("img/loading.gif");
-  console.log(imgURL);
   var html = "<div class='hnprofile-loading' style='background-image: url(" + imgURL + ");'></div>";
   return html;
 }
 
 function renderProfileTemplate(data) {
+  // Format bio:
+  var bio = data["bio"].replace(/\n/g, "<br>");
+
+  // Get avatar URL:
+  var avatarUrl = chrome.extension.getURL("img/profile.png");
+  if (data["avatar"]) {
+    avatarUrl = data["avatar"];
+  }
+
+  // Create HTML:
   var html = "";
-  html += "<div class='hnprofile-body'>"
-  html += "  <div class='hnprofile-username'>" + data["username"] + "</div>";
-  html += "</div>"
+  html += "<div class='hnprofile-body'>";
+  html += "  <div class='hnprofile-top'>";
+  html += "    <div class='hnprofile-avatar' style='background-image: url(" + avatarUrl + ");'></div>";
+
+  html += "    <div class='hnprofile-info-bar'>";
+  html += "      <div class='hnprofile-username'>" + data["username"] + "</div>";
+  html += "      <div class='hnprofile-karma'>Karma: " + data["karma"] + "</div>";
+  html += "      <div class='hnprofile-age'>Created: " + data["account_age"] + "</div>";
+  html += "    </div>";
+  html += "  </div>";
+
+  html += "  <div class='hnprofile-main'>";
+  html += "    <div class='hnprofile-bio-label'>Bio:</div>";
+  html += "    <div class='hnprofile-bio'>" + bio + "</div>";
+  html += "  </div>";
+
+  html += "  <div class='hnprofile-links'>";
+  html += "    <a href='#' class='hnprofile-link'>Submissions</a>";
+  html += "    <a href='#' class='hnprofile-link'>Comments</a>";
+  html += "  </div>";
+  html += "</div>";
+
   return html;
 }
 
