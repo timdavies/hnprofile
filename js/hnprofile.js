@@ -1,3 +1,7 @@
+function extractEmails(text) {
+  return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+}
+
 function getDataForUser(username, callback) {
   callback({
     username: "kaolinite",
