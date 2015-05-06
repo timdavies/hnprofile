@@ -40,9 +40,6 @@ function getDataForUser(username, callback) {
 
       // Try and get Github account (for avatar):
       var githubs = extractGithubs(bio);
-      console.log("here")
-      console.log(bio)
-      console.log(githubs);
       if (githubs && githubs.length > 0) {
         var github_username = githubs[0].trim().replace("github.com/", "");
         avatar_url = "https://avatars.githubusercontent.com/" + github_username
