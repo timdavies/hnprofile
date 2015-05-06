@@ -90,8 +90,8 @@ function renderProfileTemplate(data) {
   html += "  </div>";
 
   html += "  <div class='hnprofile-links'>";
-  html += "    <a href='#' class='hnprofile-link'>Submissions</a>";
-  html += "    <a href='#' class='hnprofile-link'>Comments</a>";
+  html += "    <a href='/submitted?id=" + data["username"] + "' class='hnprofile-link'>Submissions</a>";
+  html += "    <a href='/threads?id=" + data["username"] + "' class='hnprofile-link'>Comments</a>";
   html += "  </div>";
   html += "</div>";
 
