@@ -2,6 +2,10 @@ function extractEmails(text) {
   return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
 }
 
+function extractGithubs(text) {
+  return text.match(/github.com\/([^\/ \n]*)/gi);
+}
+
 function getDataForUser(username, callback) {
   $.get("/user?id=" + username, function(data) {
     var created = 0;
@@ -30,14 +34,27 @@ function getDataForUser(username, callback) {
         }
       });
 
-      // Try and extract emails from bio:
-      var emails = extractEmails(bio);
-      if (emails && emails.length > 0) {
-        var email = emails[0];
-        var hash = CryptoJS.MD5(email);
-        avatar_url = "http://gravatar.com/avatar/" + hash + "?s=80&d=mm"
+      // Try and get Github account (for avatar):
+      var githubs = extractGithubs(bio);
+      console.log("here")
+      console.log(bio)
+      console.log(githubs);
+      if (githubs && githubs.length > 0) {
+        var github_username = githubs[0].trim().replace("github.com/", "");
+        avatar_url = "https://avatars.githubusercontent.com/" + github_username
       }
 
+      // Try and extract emails from bio:
+      if (avatar_url == null) {
+        var emails = extractEmails(bio);
+        if (emails && emails.length > 0) {
+          var email = emails[0];
+          var hash = CryptoJS.MD5(email);
+          avatar_url = "http://gravatar.com/avatar/" + hash + "?s=80&d=mm"
+        }
+      }
+
+      // Call callback with data:
       callback({
         username: username,
         karma: karma,
