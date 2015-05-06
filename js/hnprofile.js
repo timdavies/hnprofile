@@ -3,12 +3,51 @@ function extractEmails(text) {
 }
 
 function getDataForUser(username, callback) {
-  callback({
-    username: "kaolinite",
-    karma: 1218,
-    bio: "Founder of Pleasant.io, a simple, friendly website analytics service.\n\nI'm a Rails and Javascript (Angular and Ember) developer from Liverpool, UK. I also work with Go.\n\nGithub: http://github.com/timdavies\n\nWebsite: http://timdavies.io/\n\nEmail: mail@timdavies.io",
-    avatar: null,
-    account_age: "1156 days ago"
+  $.get("/user?id=" + username, function(data) {
+    var created = 0;
+    var karma = 0;
+    var bio = "";
+
+    try {
+      // Loop through trs:
+      $(data).find('tr').each(function() {
+        if ($(this).find('td').length == 2) {
+          var key = $(this).find('td').eq(0).text().trim();
+          var value = $(this).find('td').eq(1).text().trim();
+
+          if (key == "created:") {
+            created = value;
+          }
+
+          if (key == "karma:") {
+            karma = value;
+          }
+
+          if (key == "about:") {
+            bio = $(this).find('td').eq(1).html().trim();
+          }
+        }
+      });
+
+      // Try and extract emails from bio:
+      var emails = extractEmails(bio);
+      if (emails && emails.length > 0) {
+        var email = emails[0];
+        var hash = CryptoJS.MD5(email);
+        var avatar_url = "http://gravatar.com/avatar/" + hash + "?s=80&d=mm"
+      }
+
+      callback({
+        username: username,
+        karma: karma,
+        bio: bio,
+        avatar: null,
+        account_age: created,
+      });
+    } catch(err) {
+      console.log(err);
+      return callback(null);
+    }
   });
 }
 
