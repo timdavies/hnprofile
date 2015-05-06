@@ -51,6 +51,10 @@ function getDataForUser(username, callback) {
   });
 }
 
+function renderRateLimited() {
+  return "<div class='hnprofile-ratelimited'>Unfortunately, you've been temporarily rate-limited for user profiles.</div>";
+}
+
 function renderLoadingTemplate() {
   var imgURL = chrome.extension.getURL("img/loading.gif");
   var html = "<div class='hnprofile-loading' style='background-image: url(" + imgURL + ");'></div>";
@@ -119,7 +123,11 @@ $(function() {
     // When popover is opened, fetch the user's info:
     drop.on('open', function() {
       getDataForUser(username, function(data) {
-        $(drop.content).html(renderProfileTemplate(data));
+        if (!data) {
+          $(drop.content).html(renderRateLimited());
+        } else {
+          $(drop.content).html(renderProfileTemplate(data));
+        }
       });
     });
   });
