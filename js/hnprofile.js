@@ -7,6 +7,7 @@ function getDataForUser(username, callback) {
     var created = 0;
     var karma = 0;
     var bio = "";
+    var avatar_url = null;
 
     try {
       // Loop through trs:
@@ -34,14 +35,14 @@ function getDataForUser(username, callback) {
       if (emails && emails.length > 0) {
         var email = emails[0];
         var hash = CryptoJS.MD5(email);
-        var avatar_url = "http://gravatar.com/avatar/" + hash + "?s=80&d=mm"
+        avatar_url = "http://gravatar.com/avatar/" + hash + "?s=80&d=mm"
       }
 
       callback({
         username: username,
         karma: karma,
         bio: bio,
-        avatar: null,
+        avatar: avatar_url,
         account_age: created,
       });
     } catch(err) {
