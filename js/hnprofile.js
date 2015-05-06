@@ -1,3 +1,7 @@
+//= include ./jquery.js
+//= include ./md5.js
+//= include ./drop.js
+
 function extractEmails(text) {
   return text.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
 }
