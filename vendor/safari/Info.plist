@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Author</key>
+  <string>Tim Davies</string>
+  <key>Builder Version</key>
+  <string>10600.2.5</string>
+  <key>CFBundleDisplayName</key>
+  <string>HNProfile</string>
+  <key>CFBundleIdentifier</key>
+  <string>com.timdavies.hnprofile</string>
+  <key>CFBundleInfoDictionaryVersion</key>
+  <string>6.0</string>
+  <key>CFBundleShortVersionString</key>
+  <string>1.0</string>
+  <key>CFBundleVersion</key>
+  <string>1</string>
+  <key>Content</key>
+  <dict>
+    <key>Scripts</key>
+    <dict>
+      <key>Start</key>
+      <array>
+        <string>js/hnprofile.js</string>
+      </array>
+    </dict>
+  </dict>
+  <key>Description</key>
+  <string>HNProfile adds profile overlays to Hacker News usernames</string>
+  <key>DeveloperIdentifier</key>
+  <string>9EU97B733J</string>
+  <key>ExtensionInfoDictionaryVersion</key>
+  <string>1.0</string>
+  <key>Permissions</key>
+  <dict>
+    <key>Website Access</key>
+    <dict>
+      <key>Include Secure Pages</key>
+      <true/>
+      <key>Level</key>
+      <string>All</string>
+    </dict>
+  </dict>
+  <key>Website</key>
+  <string>http://github.com/timdavies/hnprofile</string>
+</dict>
+</plist>

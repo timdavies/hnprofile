@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "HNProfile",
+  "version": "1.0.0",
+  "description": "HNProfile adds profile overlays to Hacker News usernames",
+  "icons": {
+  },
+  "permissions": [
+    "http://news.ycombinator.com/*",
+    "https://news.ycombinator.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://news.ycombinator.com/*",
+        "https://news.ycombinator.com/*"
+      ],
+      "css": [ "css/drop.css", "css/hnprofile.css" ],
+      "js": [ "js/jquery.js", "js/drop.js", "js/hnprofile.js" ]
+    }
+  ]
+}

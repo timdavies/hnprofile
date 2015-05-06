@@ -1,0 +1,1 @@
+var self = require("sdk/self");

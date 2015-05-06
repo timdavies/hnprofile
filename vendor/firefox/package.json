@@ -1,0 +1,10 @@
+{
+  "name": "hnprofile",
+  "title": "HNProfile",
+  "id": "jid1-h1mz1R4SBrBiUg",
+  "description": "HNProfile adds profile overlays to Hacker News usernames",
+  "author": "Tim Davies",
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "data/main"
+}

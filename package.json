@@ -1,0 +1,25 @@
+{
+  "name": "hnprofile",
+  "version": "1.0.0",
+  "description": "Browser extension for Chrome, Safari and Firefox that adds profile overlays to Hacker News usernames",
+  "dependencies": {},
+  "devDependencies": {
+    "event-stream": "^3.2.1",
+    "gulp": "^3.8.10",
+    "gulp-clean": "^0.3.1",
+    "gulp-run-sequence": "^0.3.2",
+    "gulp-shell": "^0.2.11",
+    "gulp-zip": "^2.0.2",
+    "run-sequence": "^1.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/timdavies/hnprofile.git"
+  },
+  "author": "Tim Davies <mail@timdavies.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/timdavies/hnprofile/issues"
+  },
+  "homepage": "https://github.com/timdavies/hnprofile"
+}
