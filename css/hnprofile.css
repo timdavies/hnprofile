@@ -73,6 +73,13 @@
   padding-bottom: 20px;
 }
 
+.hnprofile-bio-empty {
+  text-align: center;
+  padding-top: 27px;
+  color: #aaa;
+  font-size: 16px;
+}
+
 .hnprofile-links {
   padding-top: 10px;
   border-top: 1px solid #ccc;

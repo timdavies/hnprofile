@@ -103,8 +103,12 @@ function renderProfileTemplate(data) {
   html += "  </div>";
 
   html += "  <div class='hnprofile-main'>";
-  html += "    <div class='hnprofile-bio-label'>Bio:</div>";
-  html += "    <div class='hnprofile-bio'>" + bio + "</div>";
+  if (bio.length > 0) {
+    html += "    <div class='hnprofile-bio-label'>Bio:</div>";
+    html += "    <div class='hnprofile-bio'>" + bio + "</div>";
+  } else {
+    html += "    <div class='hnprofile-bio hnprofile-bio-empty'>No user bio</div>";
+  }
   html += "  </div>";
 
   html += "  <div class='hnprofile-links'>";
