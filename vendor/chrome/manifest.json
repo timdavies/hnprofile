@@ -18,5 +18,8 @@
       "css": [ "css/drop.css", "css/hnprofile.css" ],
       "js": [ "js/jquery.js", "js/drop.js", "js/hnprofile.js" ]
     }
+  ],
+  "web_accessible_resources": [
+    "img/*"
   ]
 }
