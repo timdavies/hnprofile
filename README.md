@@ -1,5 +1,7 @@
 # HNProfile - Profile Overlay for Hacker News
 
+![Screenshot of HNProfile](http://i.imgur.com/VROns8e.png)
+
 HNProfile lets you quickly glance at a user's profile without leaving the page
 you're on. You can quickly see a user's bio, karma, account age - plus quick
 links to their comments and submissions. Plus, if they have an email address
