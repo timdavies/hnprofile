@@ -55,6 +55,15 @@ function getDataForUser(username, callback) {
         }
       }
 
+      // Check if the bio is in a textarea (i.e. the bio belongs to logged in
+      // user):
+      try {
+        if ($(bio).is("textarea")) {
+          bio = $(bio).eq(0).text();
+        }
+      } catch (err) {
+      }
+
       // Call callback with data:
       callback({
         username: username,
