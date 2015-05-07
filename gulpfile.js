@@ -1,6 +1,7 @@
 var gulp     = require('gulp');
 var clean    = require('gulp-clean');
 var include  = require('gulp-include');
+var rename   = require('gulp-rename');
 var insert   = require('gulp-insert');
 var es       = require('event-stream');
 var rseq     = require('gulp-run-sequence');
@@ -82,6 +83,10 @@ gulp.task('safari', function() {
     pipe('./vendor/safari/Info.plist',             build_path),
     pipe('./vendor/safari/Settings.plist',         build_path)
   );
+
+  gulp.src('img/icon/128.png')
+    .pipe(rename("Icon.png"))
+    .pipe(gulp.dest(build_path))
 
   gulp.src('js/hnprofile.js')
     .pipe(include())
