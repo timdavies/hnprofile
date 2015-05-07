@@ -36,3 +36,13 @@ Download here:
 1. Run `gulp` to build the extension for all platforms. If you're developing,
   I recommend using `gulp watch` instead. This keeps track of file changes
   and runs gulp as required.
+
+1. If you plan to build for Firefox (and if you're planning to submit a pull
+  request, please take the time to test in all browsers if you can), you will
+  need to [install the Mozilla Addon SDK](https://developer.mozilla.org/en-US/Add-ons/SDK/Tutorials/Installation).
+
+## Contributing
+
+As HNProfile supports Chrome, Safari and Firefox, please test your code in all
+browsers if you can. If you can't (e.g. you're on Linux and can't test in
+Safari), please let me know and I'll test for you.
