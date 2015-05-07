@@ -1,5 +1,7 @@
 # HNProfile - Profile Overlay for HN
 
+**Supports Chrome, Safari and Firefox.**
+
 ![Screenshot of HNProfile](http://i.imgur.com/VROns8e.png)
 
 HNProfile lets you quickly glance at a user's profile without leaving the page
