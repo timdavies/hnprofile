@@ -88,8 +88,6 @@ function getExtensionImage(src) {
     return safari.extension.baseURI + src;
   } else if (HNProfileBrowser == "chrome") {
     return chrome.extension.getURL(src);
-  } else if (HNProfileBrowser == "firefox") {
-    return src;
   } else {
     console.log("HNProfile: error accessing browser name");
     return src;
@@ -97,7 +95,11 @@ function getExtensionImage(src) {
 }
 
 function renderLoadingTemplate() {
-  var imgURL = getExtensionImage("img/loading.gif");
+  if (HNProfileBrowser == 'firefox') {
+    var imgURL = self.options.loadingUrl;
+  } else {
+    var imgURL = getExtensionImage("img/loading.gif");
+  }
   var html = "<div class='hnprofile-loading' style='background-image: url(" + imgURL + ");'></div>";
   return html;
 }
@@ -107,9 +109,13 @@ function renderProfileTemplate(data) {
   var bio = data["bio"].replace(/\n/g, "<br>");
 
   // Get avatar URL:
-  var avatarUrl = getExtensionImage("img/profile.png");
+  if (HNProfileBrowser == 'firefox') {
+    var avatarUrl = self.options.profileUrl;
+  } else {
+    var avatarUrl = getExtensionImage("img/profile.png");
+  }
   if (data["avatar"]) {
-    avatarUrl = data["avatar"];
+    var avatarUrl = data["avatar"];
   }
 
   // Create HTML:
