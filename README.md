@@ -23,7 +23,9 @@ Download here: https://chrome.google.com/webstore/detail/hnprofile/gheapnefkgncn
 
 ### Firefox
 
-Download here: https://addons.mozilla.org/en-US/firefox/addon/hnprofile/
+Download here: https://github.com/timdavies/hnprofile/releases/download/1.0/hnprofile.xpi
+
+(A Firefox Marketplace link is coming soon - once accepted into the store).
 
 ## Setting up to build from source
 
