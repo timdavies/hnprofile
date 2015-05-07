@@ -15,15 +15,15 @@ grab a copy from the appropriate extensions / addon store.
 
 ### Safari:
 
-Download here:
+Download here: https://github.com/timdavies/hnprofile/releases/download/1.0/hnprofile.safariextz
 
 ### Chrome:
 
-Download here:
+Download here: https://chrome.google.com/webstore/detail/hnprofile/gheapnefkgncnelpbgjdbckmglilbgdl
 
 ### Firefox
 
-Download here:
+Download here: https://addons.mozilla.org/en-US/firefox/addon/hnprofile/
 
 ## Setting up to build from source
 
