@@ -6,5 +6,6 @@
   "author": "Tim Davies",
   "license": "MIT",
   "version": "1.0.0",
-  "main": "data/main"
+  "main": "data/main",
+  "icon": "data/img/icon/48.png"
 }
