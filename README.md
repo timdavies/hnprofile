@@ -1,4 +1,4 @@
-# HNProfile - Profile Overlay for Hacker News
+# HNProfile - Profile Overlay for HN
 
 ![Screenshot of HNProfile](http://i.imgur.com/VROns8e.png)
 
